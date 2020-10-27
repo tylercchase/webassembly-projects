@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <head>
-    
+    <script>
+      fetch('test.wasm').then(response => 
+  	response.arrayBuffer()
+  ).then(bytes => 
+    WebAssembly.instantiate(bytes)
+  ).then(obj => {
+      console.log(obj.instance.exports.helloWorld());
+  });
+    </script>
 </head>
 <body>
     <p>Hello World!</p>
