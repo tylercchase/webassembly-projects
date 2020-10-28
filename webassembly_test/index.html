@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <head>
     <script>
-      let clicker = () => {fetch('test.wasm').then(response => 
-        response.arrayBuffer()
-    ).then(bytes => 
-        WebAssembly.instantiate(bytes)
-    ).then(obj => {
-        console.log("ASD");
-        console.log(obj.instance.exports.add(20,32));
-    })};
+        let clicker = () =>  WebAssembly.instantiateStreaming(fetch('test.wasm'))
+        .then(obj => {
+            document.getElementById("result").innerHTML = `Result: ${(obj.instance.exports.add(document.getElementById('num1').value, document.getElementById('num2').value))}`; 
+        });
     </script>
 </head>
 <body>
-    <p>Hello World!</p>
-    <button onclick="clicker()">Click me to see cool stuff!</button>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button onclick="clicker()">Click me to add!</button>
+    <p id="result"></p>
 </body>
