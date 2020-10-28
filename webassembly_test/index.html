@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <head>
     <script>
-      fetch('test.wasm').then(response => 
-  	response.arrayBuffer()
-  ).then(bytes => 
-    WebAssembly.instantiate(bytes)
-  ).then(obj => {
-      console.log(obj.instance.exports.helloWorld());
-  });
+      let clicker = () => {fetch('test.wasm').then(response => 
+        response.arrayBuffer()
+    ).then(bytes => 
+        WebAssembly.instantiate(bytes)
+    ).then(obj => {
+        console.log("ASD");
+        console.log(obj.instance.exports.add(20,32));
+    })};
     </script>
 </head>
 <body>
     <p>Hello World!</p>
+    <button onclick="clicker()">Click me to see cool stuff!</button>
 </body>
