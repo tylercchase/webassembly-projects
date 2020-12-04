@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script src="wasm_exec.js"></script>
+		<script>
+			const go = new Go();
+			WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+                go.run(result.instance);
+                array_to_pass = new Uint8Array([42,0,10, 9, 21, 32]);
+                console.log(add(array_to_pass));
+			});
+		</script>
+	</head>
+	<body></body>
+</html>
