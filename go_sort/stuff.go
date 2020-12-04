@@ -5,7 +5,7 @@ import "sort"
 func add(this js.Value, args []js.Value) interface{} {
 	received := make([]byte, args[0].Get("length").Int())
 
-    _ = js.CopyBytesToGo(received, args[0])
+    js.CopyBytesToGo(received, args[0])
 	sort.SliceStable(received, func(i, j int) bool {
 		return received[i] < received[j]
 	})

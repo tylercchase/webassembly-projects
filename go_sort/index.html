@@ -5,9 +5,9 @@
 		<script>
 			const go = new Go();
 			WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
-                go.run(result.instance);
+				go.run(result.instance);
                 array_to_pass = new Uint8Array([42,0,10, 9, 21, 32]);
-                console.log(add(array_to_pass));
+                console.log(sort(array_to_pass));
 			});
 		</script>
 	</head>
