@@ -5,6 +5,11 @@
         .then(obj => {
             document.getElementById("result").innerHTML = `Result: ${(obj.instance.exports.add(document.getElementById('num1').value, document.getElementById('num2').value))}`; 
         });
+
+        WebAssembly.instantiateStreaming(fetch('test.wasm'))
+        .then(obj => {
+            console.log(obj.instance.exports.add(1,2)); 
+        });
     </script>
 </head>
 <body>
