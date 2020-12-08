@@ -7,3 +7,6 @@ I have organized the code into different directories for different tasks/project
 | Directory | Description |
 | --- | --- |
 | add | A basic add function in webassembly |
+| accumulate | Adds numbers up to point in array by copying memory |
+| cpp_test | Test out c++ to WASM via emscripten |
+| go_sort | Use GO to sort a JS array |
