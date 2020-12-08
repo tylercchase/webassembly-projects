@@ -4,6 +4,11 @@ Uses the [wabt](https://github.com/WebAssembly/wabt/tree/1.0.19) tools to compil
 
 I have organized the code into different directories for different tasks/projects
 
+The way I tested these projects out is by running 
+```python
+python3 -m http.server 8080
+```
+
 | Directory | Description |
 | --- | --- |
 | add | A basic add function in webassembly |
